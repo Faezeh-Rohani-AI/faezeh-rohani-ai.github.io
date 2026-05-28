@@ -1,0 +1,624 @@
+/* ============================================================
+   Faezeh Rohani, PhD — Research Page Stylesheet
+   research.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --primary:        linear-gradient(90deg, #1659a4 0%, #1c7ec0 25%, #1aa6c4 50%, #1cc9b0 75%, #2ec97e 100%);;
+  --accent:         #1a5f8e;
+  --green: rgb(22, 231, 144);
+  --blue: rgb(0, 94, 255);
+  --text:           #1a1a2e;
+  --muted:          #555566;
+  --bg:             #fafaf8;
+  --white:          #ffffff;
+  --border:         #e8e8f0;
+  --link:           #1a5f8e;
+  --nav-height:     68px;
+  --card-shadow:    0 4px 24px rgba(0, 53, 148, 0.08);
+  --hover-shadow:   0 8px 32px rgba(0, 53, 148, 0.14);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════ */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+
+.nav-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover  { 
+  color: var(--primary); 
+  background: #f0f4ff; 
+}
+
+.nav-links a.active { 
+  background: var(--primary); 
+  color: var(--white); 
+  font-weight: 400; 
+}
+
+/* ══════════════════════════════════════
+   RESEARCH CONTAINER
+══════════════════════════════════════ */
+.research-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+/* ══════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════ */
+.research-hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  position: relative;
+}
+
+.research-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(0, 53, 148, 0.03) 0%, 
+    rgba(255, 184, 28, 0.02) 100%);
+  z-index: -1;
+  margin-left: calc(-50vw + 50%);
+}
+
+.research-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.8s ease both;
+}
+
+.research-subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+  animation: fadeInUp 0.8s ease both 0.1s;
+}
+
+/* ══════════════════════════════════════
+   RESEARCH OVERVIEW
+══════════════════════════════════════ */
+.research-overview {
+  text-align: justify;
+  text-align-last: center;
+  padding: 60px 0;
+  animation: fadeInUp 0.8s ease both 0.2s;
+}
+
+.overview-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lead-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  color: var(--text);
+}
+
+.overview-content p {
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.overview-content strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.overview-content em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* ══════════════════════════════════════
+   FOCUS AREAS
+══════════════════════════════════════ */
+.focus-areas {
+  padding: 80px 0;
+  animation: fadeInUp 0.8s ease both 0.3s;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.focus-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.focus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--primary);
+}
+
+.focus-card:hover::before {
+  transform: scaleX(1);
+}
+
+.focus-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(0, 53, 148, 0.1), rgba(255, 184, 28, 0.1));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--accent);
+}
+
+.focus-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.focus-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.focus-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.focus-card li {
+  padding: 12px 0 12px 28px;
+  position: relative;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--border);
+}
+
+.focus-card li:last-child {
+  border-bottom: none;
+}
+
+.focus-card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════
+   RESEARCH AGENDAS
+══════════════════════════════════════ */
+.research-agendas {
+   text-align: justify;
+  text-align-last: center;
+  padding: 80px 0;
+  animation: fadeInUp 0.8s ease both 0.4s;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  border-radius: 2px;
+}
+
+.agendas-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.agendas-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.agenda-item {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.agenda-item:nth-child(1) { animation-delay: 0.1s; }
+.agenda-item:nth-child(2) { animation-delay: 0.2s; }
+.agenda-item:nth-child(3) { animation-delay: 0.3s; }
+.agenda-item:nth-child(4) { animation-delay: 0.4s; }
+.agenda-item:nth-child(5) { animation-delay: 0.5s; }
+
+.agenda-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--card-shadow);
+  border-color: var(--accent);
+}
+
+.agenda-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 80px;
+  opacity: 0.6;
+}
+
+.agenda-content h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.agenda-content p {
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 0.97rem;
+}
+
+/* ══════════════════════════════════════
+   RESEARCH LABORATORY
+══════════════════════════════════════ */
+.research-lab {
+    text-align: justify;
+  text-align-last: center;
+  padding: 80px 0;
+  position: relative;
+  animation: fadeInUp 0.8s ease both 0.5s;
+}
+
+.research-lab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(0, 53, 148, 0.04) 0%, 
+    rgba(255, 184, 28, 0.03) 100%);
+  z-index: -1;
+  margin-left: calc(-50vw + 50%);
+}
+
+.lab-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  background: var(--white);
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border);
+}
+
+.lab-badge {
+  flex-shrink: 0;
+}
+
+.lab-logo {
+  width: 120px;
+  height: auto;
+}
+
+.lab-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.lab-info p {
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-size: 0.97rem;
+}
+
+.lab-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.lab-link:hover {
+  transform: translateX(4px);
+}
+
+.lab-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.lab-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ══════════════════════════════════════
+   COLLABORATIONS
+══════════════════════════════════════ */
+.collaborations {
+  padding: 80px 0;
+  animation: fadeInUp 0.8s ease both 0.6s;
+}
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.collab-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.collab-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--primary);
+}
+
+.collab-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.collab-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.collab-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.collab-focus {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(0, 53, 148, 0.08);
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE DESIGN
+══════════════════════════════════════ */
+@media (max-width: 968px) {
+  .research-container {
+    padding: 0 30px 60px;
+  }
+
+  .research-title {
+    font-size: 2.8rem;
+  }
+
+  .research-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-content {
+    flex-direction: column;
+    padding: 40px 30px;
+  }
+
+  .agenda-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .agenda-number {
+    font-size: 2.5rem;
+  }
+
+  nav {
+    padding: 16px 30px;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .research-title {
+    font-size: 2.2rem;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+  }
+
+  .collab-grid,
+  .impact-stats {
+    grid-template-columns: 1fr;
+  }
+
+ 
+}

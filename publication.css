@@ -1,0 +1,163 @@
+/* ============================================================
+   Faezeh Rohani, PhD — Global Stylesheet
+   Matches home, bio, and all content pages perfectly
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --primary:    linear-gradient(90deg, #1659a4 0%, #1c7ec0 25%, #1aa6c4 50%, #1cc9b0 75%, #2ec97e 100%);;
+  --accent:     #FFB81C;
+  --text:       #1a1a2e;
+  --muted:      #555566;
+  --bg:         #fafaf8;
+  --white:      #ffffff;
+  --border:     #e8e8f0;
+  --link:       #1a5f8e;
+  --nav-height: 68px;
+}
+html {
+    overflow-y: scroll;
+}
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════ */
+nav {
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+
+.nav-name {
+  
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  padding: 7px 14px;
+  border-radius: 4px;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover  { color: var(--primary); background: #f0f4ff; }
+.nav-links a.active { background: var(--primary); color: var(--white); font-weight: 400; }
+
+/* ══════════════════════════════════════
+   PAGE CONTAINER & LAYOUT
+══════════════════════════════════════ */
+.page-wrapper {
+  text-align: justify;
+  text-align-last: center;
+  margin: 1 auto;
+  padding: 80px 40px 80px; /* Adjusted padding to push text down cleanly */
+}
+
+.content-section {
+  animation: fadeUp 0.8s ease both;
+}
+
+/* ── Typography & Content ── */
+.page-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.sub-heading {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.page-text {
+  color: #000000;
+  margin-bottom: 18px;
+  font-size: 0.97rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.page-text strong {
+  font-weight: 600;
+}
+
+/* Custom Links embedded in text */
+.custom-link {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 53, 148, 0.25);
+  transition: all 0.2s ease;
+}
+
+.custom-link:hover {
+  border-bottom-color: var(--primary);
+}
+
+/* ── Section Divider ── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 48px 0 36px;
+}
+
+/* ══════════════════════════════════════
+   ANIMATIONS (Staggered Fade-in)
+══════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-heading           { animation: fadeUp 0.7s ease both; }
+.page-text              { animation: fadeUp 0.7s ease both; }
+.page-text:nth-of-type(2) { animation-delay: 0.08s; }
+.page-text:nth-of-type(3) { animation-delay: 0.16s; }
+.section-divider        { animation: fadeUp 0.7s ease both; animation-delay: 0.20s; }
+.sub-heading            { animation: fadeUp 0.7s ease both; animation-delay: 0.26s; }
+.custom-list            { animation: fadeUp 0.7s ease both; animation-delay: 0.32s; }
